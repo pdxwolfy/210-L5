@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <title>javascript</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="assert.js"></script>
+  </head>
+
+  <body>
+    <pre id="console">
+    </pre>
+
+    <script>
+'use strict';
+
+function dateSuffix(day) {
+  switch (day) {
+    case 1:
+    case 21:
+    case 31:
+      return 'st';
+    case 2:
+    case 22:
+      return 'nd';
+    case 3:
+    case 23:
+      return 'rd';
+    default:
+      return 'th';
+  }
+}
+
+function formattedMonth(date) {
+  var months = [
+    'Jan',
+    'Feb',
+    'Mar',
+    'Apr',
+    'May',
+    'Jun',
+    'Jul',
+    'Aug',
+    'Sep',
+    'Oct',
+    'Nov',
+    'Dec',
+  ];
+
+  return months[date.getMonth()];
+}
+
+function formattedDay(date) {
+  var dayNumber = date.getDay();
+
+  return String(dayNumber) + dateSuffix(dayNumber);
+}
+
+function formattedDate(date) {
+  var days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+  var dayOfWeek = date.getDay();
+
+  return days[dayOfWeek] + ', ' +
+         formattedMonth(date) + ' ' +
+         formattedDay(date);
+}
+
+/* eslint-disable no-magic-numbers */
+/* eslint-disable vars-on-top */
+/* global show, log, theEnd */
+var today = new Date();
+show("Today's date is " + formattedDate(today));
+theEnd();
+    </script>
+  </body>
+</html>

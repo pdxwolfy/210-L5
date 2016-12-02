@@ -14,23 +14,20 @@
     <script>
 'use strict';
 
-function objectHasProperty(object, property) {
-  var properties = Object.keys(object);
-  return properties.indexOf(property) >= 0;
+function greetings(name, info) {
+  var fullName = name.join(' ');
+  var job = info.title + ' ' + info.occupation;
+
+  return 'Hello, ' + fullName + '! Nice to have a ' + job + ' around.';
 }
 
 /* eslint-disable no-magic-numbers */
 /* eslint-disable vars-on-top */
-var pets = {
-  cat: 'Simon',
-  dog: 'Dwarf',
-  mice: null,
-};
+/* global show, log, theEnd */
+var result = greetings(['John', 'Q', 'Doe'],
+                       { title: 'Master', occupation: 'Plumber' });
 
-/* global log, theEnd */
-log(objectHasProperty(pets, 'dog'), true);
-log(objectHasProperty(pets, 'lizard'), false);
-log(objectHasProperty(pets, 'mice'), true);
+log(result, 'Hello, John Q Doe! Nice to have a Master Plumber around.');
 theEnd();
     </script>
   </body>

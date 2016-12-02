@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <title>javascript</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="assert.js"></script>
+  </head>
+
+  <body>
+    <pre id="console">
+    </pre>
+
+    <script>
+'use strict';
+
+function randomInteger(minimum, maximum) {
+  var randomValue;
+
+  if (minimum === maximum) {
+    return minimum;
+  }
+
+  randomValue = Math.random();
+  return Math.floor(((maximum - minimum + 1) * randomValue) + minimum);
+}
+
+/* eslint-disable no-magic-numbers */
+/* eslint-disable vars-on-top */
+var i;
+
+/* global show, log, theEnd */
+for (i = 0; i < 16; ++i) {
+  show(randomInteger(1, 5));
+}
+show('');
+
+for (i = 0; i < 16; ++i) {
+  show(randomInteger(-3, 6));
+}
+show('');
+
+for (i = 0; i < 16; ++i) {
+  show(randomInteger(0, 10));
+}
+show('');
+
+theEnd();
+    </script>
+  </body>
+</html>

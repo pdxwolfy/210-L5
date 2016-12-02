@@ -19,18 +19,27 @@ function objectHasProperty(object, property) {
   return properties.indexOf(property) >= 0;
 }
 
+function incrementProperty(object, property) {
+  if (!objectHasProperty(object, property)) {
+    object[property] = 0;
+  }
+
+  object[property] += 1;
+  return object[property];
+}
+
 /* eslint-disable no-magic-numbers */
 /* eslint-disable vars-on-top */
-var pets = {
-  cat: 'Simon',
-  dog: 'Dwarf',
-  mice: null,
+var wins = {
+  steve: 3,
+  susie: 4,
 };
 
 /* global log, theEnd */
-log(objectHasProperty(pets, 'dog'), true);
-log(objectHasProperty(pets, 'lizard'), false);
-log(objectHasProperty(pets, 'mice'), true);
+log(incrementProperty(wins, 'susie'), 5);
+log(wins, { steve: 3, susie: 5 });
+log(incrementProperty(wins, 'lucy'), 1);
+log(wins, { steve: 3, susie: 5, lucy: 1 });
 theEnd();
     </script>
   </body>

@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <title>javascript</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="assert.js"></script>
+  </head>
+
+  <body>
+    <pre id="console">
+    </pre>
+
+    <script>
+'use strict';
+
+function countCharacters(string) {
+  var index;
+  var character;
+  var count = {};
+  var lcString = string.toLowerCase();
+
+  for (index = 0; index < lcString.length; ++index) {
+    character = lcString[index];
+    count[character] = (character in count) ? (count[character] + 1) : 1;
+  }
+
+  return count;
+}
+
+function selectRepeated(count) {
+  var character;
+
+  for (character in count) {
+    if (count[character] === 1) {
+      delete count[character];
+    }
+  }
+
+  return count;
+}
+
+function repeatedCharacters(string) {
+  return selectRepeated(countCharacters(string));
+}
+
+/* eslint-disable no-magic-numbers */
+/* eslint-disable vars-on-top */
+/* global show, log, theEnd */
+log(repeatedCharacters('Programming'), { r: 2, g: 2, m: 2 });
+log(repeatedCharacters('Combination'), { o: 2, i: 2, n: 2 });
+log(repeatedCharacters('Pet'),         {});
+log(repeatedCharacters('Paper'),       { p: 2 });
+log(repeatedCharacters('Baseless'),    { s: 3, e: 2 });
+log(repeatedCharacters(''),            {});
+log(repeatedCharacters('PpPp'),        { p: 4 });
+log(repeatedCharacters('Rock Paper Scissors'),
+                       { ' ': 2, c: 2, o: 2, p: 2, r: 3, s: 4 });
+theEnd();
+    </script>
+  </body>
+</html>

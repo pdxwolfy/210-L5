@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <title>javascript</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="assert.js"></script>
+  </head>
+
+  <body>
+    <pre id="console">
+    </pre>
+
+    <script>
+'use strict';
+
+function countWordsInList(wordList) {
+  var counts = {};
+  var index;
+  var word;
+
+  for (index = 0; index < wordList.length; ++index) {
+    word = wordList[index];
+    if (!(word in counts)) {
+      counts[word] = 0;
+    }
+
+    counts[word] += 1;
+  }
+
+  return counts;
+}
+
+function wordCount(stringOfWords) {
+  var words;
+
+  if (stringOfWords.match(/^\s*$/)) {
+    return {};
+  }
+
+  words = stringOfWords.split(/ +/);
+  return countWordsInList(words);
+}
+
+/* eslint-disable no-magic-numbers */
+/* global log, theEnd */
+log(wordCount('box car a cat bag box'),
+              { a: 1, box: 2, car: 1, cat: 1, bag: 1 });
+log(wordCount('box cat car cat bag cat box'),
+              { box: 2, car: 1, cat: 3, bag: 1 });
+log(wordCount('box'), { box: 1 });
+log(wordCount(''), {});
+log(wordCount('   '), {});
+
+theEnd();
+    </script>
+  </body>
+</html>

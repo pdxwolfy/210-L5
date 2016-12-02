@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <title>javascript</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="assert.js"></script>
+  </head>
+
+  <body>
+    <pre id="console">
+    </pre>
+
+    <script>
+'use strict';
+
+function copyProperties(source, target) {
+  var property;
+  var count = 0;
+
+  for (property in source) {
+    if ({}.hasOwnProperty.call(source, property)) {
+      target[property] = source[property];
+      count += 1;
+    }
+  }
+
+  return count;
+}
+
+/* eslint-disable no-magic-numbers */
+/* eslint-disable vars-on-top */
+var sal = {};
+var cal = {};
+var mal = { model: 'Univac' };
+var hal = {
+  model: 9000,
+  enabled: true,
+};
+
+var pal = {
+  model: 'Univac',
+  enabled: true,
+};
+
+/* global log, theEnd */
+log(copyProperties(sal, cal), 0);
+log(cal, sal);
+
+log(copyProperties(hal, sal), 2);
+log(sal, hal);
+
+log(copyProperties(mal, sal), 1);
+log(sal, pal);
+
+theEnd();
+    </script>
+  </body>
+</html>

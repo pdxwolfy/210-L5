@@ -14,23 +14,12 @@
     <script>
 'use strict';
 
-function objectHasProperty(object, property) {
-  var properties = Object.keys(object);
-  return properties.indexOf(property) >= 0;
-}
-
 /* eslint-disable no-magic-numbers */
 /* eslint-disable vars-on-top */
-var pets = {
-  cat: 'Simon',
-  dog: 'Dwarf',
-  mice: null,
-};
-
-/* global log, theEnd */
-log(objectHasProperty(pets, 'dog'), true);
-log(objectHasProperty(pets, 'lizard'), false);
-log(objectHasProperty(pets, 'mice'), true);
+/* global show, log, theEnd */
+var today = new Date();
+show('getFullYear() = ' + String(today.getFullYear()));
+show('getYear() = ' + String(today.getYear()));
 theEnd();
     </script>
   </body>

@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <title>javascript</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="assert.js"></script>
+  </head>
+
+  <body>
+    <pre id="console">
+    </pre>
+
+    <script>
+'use strict';
+
+function radiansToDegrees(radians) {
+  return radians * 180 / Math.PI;
+}
+
+/* eslint-disable no-magic-numbers */
+
+/* global log, theEnd */
+log(radiansToDegrees(0), 0);
+log(radiansToDegrees(2 * Math.PI), 360);
+log(radiansToDegrees(Math.PI), 180);
+log(radiansToDegrees(Math.PI / 2), 90);
+log(radiansToDegrees(Math.PI / 3), 60);
+log(radiansToDegrees(Math.PI / 4), 45);
+log(radiansToDegrees(Math.PI / 5), 36);
+log(radiansToDegrees(Math.PI / 6), 30);
+log(radiansToDegrees(Math.PI / 7), 25.714285714285715);
+log(radiansToDegrees(Math.PI / 8), 22.5);
+log(radiansToDegrees(Math.PI / 9), 20);
+log(radiansToDegrees(Math.PI / 10), 18);
+log(radiansToDegrees(Math.PI / 11), 16.363636363636363);
+log(radiansToDegrees(Math.PI / 12), 15);
+theEnd();
+    </script>
+  </body>
+</html>
